@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+	</head>
+    <body>
+		<h1>Liste des cat&eacute;gories</h1>
+		{% for cat in categories %}
+			<p>{{ cat.nom }}</p>
+		{% else %}
+			<p>Aucune cat&eacute;gorie n'a &eacute;t&eacute; trouv&eacute;e.</p>
+			<a href='./init'>Cr&eacute;er les cat&eacute;gories</a>
+		{% endfor %}
+    </body>
+</html>
