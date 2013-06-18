@@ -1,0 +1,11 @@
+
+{% extends 'MyAppFilmothequeBundle::layout.html.twig' %}
+
+{% block title %}Liste des films{% endblock %}
+
+{% block content %}
+		
+		{% include 'MyAppFilmothequeBundle:Film:list.html.twig' with {'films' : films}  %}
+
+		<p><a href="{{ path('myapp_film_ajouter') }}">Ajouter un film</a><p>
+{% endblock %}

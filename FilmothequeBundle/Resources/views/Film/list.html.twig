@@ -1,0 +1,15 @@
+
+<table>
+{% for a in films %}
+    <tr>
+	<td>{{ a.titre }}</td>
+	<td>{{ a.description }}</td>
+	<td>{{ a.rating}}</td>
+	<td>
+	{% include 'MyAppFilmothequeBundle:Acteur:list.html.twig' with {'acteurs' : acteurs}  %}</td>
+{% else %}
+    <tr>
+	<td>Aucun film n'a été trouvé.</td>
+    </tr>
+{% endfor %}
+</table>

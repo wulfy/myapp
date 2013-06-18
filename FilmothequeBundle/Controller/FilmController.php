@@ -5,42 +5,22 @@ use Symfony\Component\DependencyInjection\ContainerAware;
 use Acme\StoreBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use MyApp\FilmothequeBundle\Entity\Acteur;
-use MyApp\FilmothequeBundle\Form\ActeurForm;
+use MyApp\FilmothequeBundle\Entity\Film;
 
-class ActeurController extends ContainerAware
+
+class FilmController extends ContainerAware
 {
     public function listerAction()
     {
 		$em = $this->container->get('doctrine')->getEntityManager();
 
-		$acteurs= $em->getRepository('MyAppFilmothequeBundle:Acteur')->findAll();
+		$films= $em->getRepository('MyAppFilmothequeBundle:Film')->findAll();
 
-		return $this->container->get('templating')->renderResponse('MyAppFilmothequeBundle:Acteur:lister.html.twig', 
+		return $this->container->get('templating')->renderResponse('MyAppFilmothequeBundle:Film:lister.html.twig', 
 		array(
-		'acteurs' => $acteurs
+		'films' => $films
 		));
     }
-	
-	
-	public function topAction($max = 5)
-	{
-		$em = $this->container->get('doctrine')->getEntityManager();
-
-		$qb = $em->createQueryBuilder();
-		$qb->select('a')
-		  ->from('MyAppFilmothequeBundle:Acteur', 'a')
-		  ->orderBy('a.dateNaissance', 'DESC')
-		  ->setMaxResults($max);
-
-		$query = $qb->getQuery();
-		$acteurs = $query->getResult();
-
-		return $this->container->get('templating')->renderResponse('MyAppFilmothequeBundle:Acteur:liste.html.twig', array(
-			'acteurs' => $acteurs,
-		));
-	}
-
     
     public function ajouterAction()
     {

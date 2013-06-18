@@ -19,3 +19,15 @@ myapp_acteur_modifier:
 myapp_acteur_supprimer:
   pattern: /acteur/supprimer/{id}
   defaults: { _controller: MyAppFilmothequeBundle:Acteur:supprimer }	
+myapp_film_lister:
+  pattern: /film/
+  defaults: { _controller: MyAppFilmothequeBundle:Film:lister }
+myapp_film_ajouter:
+  pattern: /acteur/ajouter
+  defaults: { _controller: MyAppFilmothequeBundle:Acteur:editer }
+myapp_film_modifier:
+  pattern: /acteur/modifier/{id}
+  defaults: { _controller: MyAppFilmothequeBundle:Acteur:editer }
+myapp_film_supprimer:
+  pattern: /acteur/supprimer/{id}
+  defaults: { _controller: MyAppFilmothequeBundle:Acteur:supprimer }	

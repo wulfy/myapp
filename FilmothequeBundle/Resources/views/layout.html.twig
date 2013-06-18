@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>{% block title %}Filmothèque{% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{{ asset('bundles/myappfilmotheque/css/main.css') }}" type="text/css" media="all" />
+	</head>
+	<body>
+   <div id="page">    
+		<div id="header">
+			<img src="{{ asset('bundles/myappfilmotheque/images/logo.png') }}" alt="Filmothèque" width="128" height="128" />
+			<ul id="menu">
+				<li><a href="{{ path('myapp_filmotheque_homepage') }}">Accueil</a></li>
+				<li><a href="{{ path('myapp_film_lister') }}">Films</a></li>
+				<li><a href="{{ path('myapp_acteur_lister') }}">Acteurs</a></li>                    
+			</ul>
+		</div>
+
+		<div id="content">
+                <h1>{{ block('title') }}</h1>
+                {% block content %}
+                {% endblock %}
+		</div>
+		<div id="footer">
+                <p>Tous droits réservés 2011</p>
+				{#% render "AcmeDemoBundle:Welcome:index" %#}
+		</div>
+	</div>
+    </body>
+</html>
